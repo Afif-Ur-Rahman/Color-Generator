@@ -27,7 +27,7 @@
   position: absolute;
   z-index: 1;
   top: 5px;
-  left: 120%;
+  left: 103%;
 }
 
 .tooltip .tooltiptext::after {
