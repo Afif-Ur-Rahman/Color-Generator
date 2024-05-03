@@ -61,67 +61,62 @@ const App = () => {
   return (
     <>
       <div
-        className="flex justify-center flex-wrap items-center font-mono w-full h-screen"
+        className="flex justify-center font-mono w-full h-screen"
         style={{ backgroundColor: hex }}
       >
-        <div className="flex justify-center items-center">
-          <div className="main flex flex-wrap justify-center items-center bg-white rounded-lg border-2 border-gray-300 bg-opacity-70 w-max p-4">
-            <div className="flex flex-col">
-              <h1 className="font-mono text-xl font-bold pb-2">
-                Random Color Generator
-              </h1>
+        <div className="main flex justify-center items-center bg-white rounded-lg border-2 border-gray-300 bg-opacity-70 w-max p-4 mt-4">
+          <div className="flex flex-col mr-2">
+            <h1 className="font-mono text-xl font-bold pb-2">
+              Random Color Generator
+            </h1>
+            <button
+              className="rounded-3xl text-black bg-transparent w-full"
+              onClick={() => handleColorChange()}
+            >
+              Click to Generate Color
+            </button>
+            <div className="flex justify-center items-center mt-2 flex-wrap flex-col">
+            <h1 className="font-mono text-sm flex flex-wrap">
+              Click Buttons Below to Copy
+            </h1>
               <button
-                className="rounded-3xl text-black bg-transparent w-full"
-                onClick={() => handleColorChange()}
+                className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
+                onClick={() => handleCopyHex()}
               >
-                Click to Generate Color
+                {hex}
+                <span
+                  className={`tooltiptext ${isCopiedHex ? "block" : "hidden"}`}
+                >
+                  Copied!
+                </span>
               </button>
-              <div className="flex justify-center items-center mt-2 flex-wrap flex-col">
-                <button
-                  className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
-                  onClick={() => handleCopyHex()}
+              <button
+                className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
+                onClick={() => handleCopyRgba()}
+              >
+                {rgba}
+                <span
+                  className={`tooltiptext ${isCopiedRgba ? "block" : "hidden"}`}
                 >
-                  {hex}
-                  <span
-                    className={`tooltiptext ${
-                      isCopiedHex ? "block" : "hidden"
-                    }`}
-                  >
-                    Copied!
-                  </span>
-                </button>
-                <button
-                  className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
-                  onClick={() => handleCopyRgba()}
+                  Copied!
+                </span>
+              </button>
+              <button
+                className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
+                onClick={() => handleCopyHsl()}
+              >
+                {hsl}
+                <span
+                  className={`tooltiptext ${isCopiedHsl ? "block" : "hidden"}`}
                 >
-                  {rgba}
-                  <span
-                    className={`tooltiptext ${
-                      isCopiedRgba ? "block" : "hidden"
-                    }`}
-                  >
-                    Copied!
-                  </span>
-                </button>
-                <button
-                  className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
-                  onClick={() => handleCopyHsl()}
-                >
-                  {hsl}
-                  <span
-                    className={`tooltiptext ${
-                      isCopiedHsl ? "block" : "hidden"
-                    }`}
-                  >
-                    Copied!
-                  </span>
-                </button>
-              </div>
+                  Copied!
+                </span>
+              </button>
             </div>
-            <div className="flex justify-center items-center flex-col m-4">
-              <h1 className="font-mono text-xl font-bold pb-2">Color Picker</h1>
-              <SketchPicker color={hex} onChange={handleColor} />
-            </div>
+          </div>
+          <div className="flex justify-center items-center flex-col ml-2">
+            <h1 className="font-mono text-xl font-bold pb-2">Color Picker</h1>
+            <SketchPicker color={hex} onChange={handleColor} />
           </div>
         </div>
       </div>

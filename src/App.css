@@ -4,6 +4,10 @@
   text-align: center;
 }
 
+.main {
+  height: max-content;
+}
+
 @media (max-width: 640px) {
   .main {
     flex-direction: column;
@@ -26,17 +30,17 @@
   padding: 5px;
   position: absolute;
   z-index: 1;
-  top: 5px;
-  left: 103%;
+  top: -40px;
+  left: 35%;
 }
 
 .tooltip .tooltiptext::after {
-  content: "";
+  content: " ";
   position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -5px;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent black transparent transparent;
+  border-color: black transparent transparent transparent;
 }
