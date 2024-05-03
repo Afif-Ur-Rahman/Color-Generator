@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid gray;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  margin: 0 2.5px;
+  transition: background-color 0.25s;
+}
+button:hover {
+  background-color: #646cff;
+  color: whitesmoke;
+}
