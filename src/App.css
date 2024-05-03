@@ -4,6 +4,13 @@
   text-align: center;
 }
 
+@media (max-width: 640px) {
+  .main {
+    flex-direction: column;
+  }
+}
+
+
 .tooltip {
   position: relative;
   display: inline-block;
