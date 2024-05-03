@@ -13,6 +13,7 @@ const App = () => {
   const [isCopiedHsl, setIsCopiedHsl] = useState(false);
 
   const handleColor = (newColor) => {
+    const color = newColor.hex;
     setHex(newColor.hex);
     setRgba(
       `rgba(${newColor.rgb.r}, ${newColor.rgb.g}, ${newColor.rgb.b}, ${newColor.rgb.a})`
@@ -22,6 +23,7 @@ const App = () => {
         2
       )}%, ${newColor.hsl.l.toFixed(2)}%)`
     );
+    document.body.style.backgroundColor = color;
   };
 
   const handleColorChange = () => {
@@ -32,6 +34,7 @@ const App = () => {
     setHex(color.toHexString());
     setRgba(rgba);
     setHsl(hsl);
+    document.body.style.backgroundColor = color;
   };
 
   const handleCopyHex = () => {
@@ -60,10 +63,7 @@ const App = () => {
 
   return (
     <>
-      <div
-        className="flex justify-center font-mono w-full h-screen"
-        style={{ backgroundColor: hex }}
-      >
+      <div className="flex justify-center font-mono w-full">
         <div className="main flex justify-center items-center bg-white rounded-lg border-2 border-gray-300 bg-opacity-70 w-max p-4 mt-4">
           <div className="flex flex-col mr-2">
             <h1 className="font-mono text-xl font-bold pb-2">
@@ -76,9 +76,9 @@ const App = () => {
               Click to Generate Color
             </button>
             <div className="flex justify-center items-center mt-2 flex-wrap flex-col">
-            <h1 className="font-mono text-sm flex flex-wrap">
-              Click Buttons Below to Copy
-            </h1>
+              <h1 className="font-mono text-sm flex flex-wrap">
+                Click Buttons Below to Copy
+              </h1>
               <button
                 className="rounded-3xl flex justify-center items-center m-1 bg-transparent tooltip w-full"
                 onClick={() => handleCopyHex()}
